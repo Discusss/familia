@@ -2,9 +2,11 @@ import express from "express";
 import cors from "cors";
 import bodyParser from "body-parser";
 import morgan from "morgan";
+import helmet from "helmet"
 
 import find from "./routes/find";
 import cabra from "./routes/cabra";
+import rateLimit from "./ratelimit/rllib";
 
 const api = express();
 
@@ -14,15 +16,41 @@ api.use(bodyParser.json())
 api.disable('x-powered-by')
 api.use(morgan("dev"))
 
+api.use(helmet({
+    crossOriginEmbedderPolicy: false,
+}));
+
+api.use(
+    rateLimit({
+        windowMs: 30 * 1000,
+        max: 10,
+        legacyHeaders: true,
+        standardHeaders: true,
+        handler: (_, res) => res.status(429).send({ status: 429, message: "Too many requests" }),
+        skipSuccessfulRequests: false,
+        skipFailedRequests: true,
+    }),
+    rateLimit({
+        windowMs: 15 * 60 * 1000,
+        max: 500,
+        legacyHeaders: true,
+        standardHeaders: true,
+        handler: (_, res) => res.status(429).send({ status: 429, message: "Too many requests" }),
+        skipSuccessfulRequests: true,
+        skipFailedRequests: false,
+    }),
+    rateLimit({
+        windowMs: 5 * 60 * 1000,
+        max: 5000,
+        legacyHeaders: true,
+        standardHeaders: true,
+        handler: (_, res) => res.status(429).send({ status: 429, message: "Too many requests" }),
+        skipSuccessfulRequests: false,
+        skipFailedRequests: true,
+    }))
+
 api.use("/find", find);
 api.use("/cabra", cabra)
-
-api.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*')
-    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE')
-    res.header('Access-Control-Allow-Headers', 'Content-Type')
-    next()
-})
 
 api.use((req, res) => {
     res.status(404).json({ error: 'Not Found' })
