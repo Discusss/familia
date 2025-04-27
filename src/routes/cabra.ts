@@ -19,8 +19,8 @@ router.get('/:number', (req, res) => {
             return;
         }
 
-
-        const files: string[] = fs.readdirSync('./assets').filter(file => file.endsWith(".jpg") || file.endsWith(".png") || file.endsWith(".jpeg"));
+        const files: string[] = fs.readdirSync('./assets/cabras')
+            .filter(file => file.endsWith(".jpg") || file.endsWith(".png") || file.endsWith(".jpeg") || file.endsWith(".webp"));
         if (files.length === 0) {
             res.status(404).json({error: "No files found"});
             return;
@@ -28,7 +28,7 @@ router.get('/:number', (req, res) => {
 
         const file = files[file_number % files.length];
 
-        res.sendFile(file, {root: './assets'});
+        res.sendFile(file, {root: './assets/cabras'});
     } catch (e) {
         res.status(500).json({error: "Internal server error"});
     }
