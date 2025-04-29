@@ -28,7 +28,7 @@ router.get('/:number', (req, res) => {
 
         const file = files[file_number % files.length];
 
-        res.sendFile(file, {root: './assets/cabras'});
+        res.sendFile(file, {root: './assets/pandas'});
     } catch (e) {
         res.status(500).json({error: "Internal server error"});
     }

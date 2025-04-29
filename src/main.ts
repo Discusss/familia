@@ -8,6 +8,7 @@ import find from "./routes/find";
 import cabra from "./routes/cabra";
 import nutrias from "./routes/nutria";
 import big_cats from "./routes/big_cats";
+import pandas from "./routes/panda";
 
 const api = express();
 
@@ -25,6 +26,8 @@ api.use("/find", find);
 api.use("/cabra", cabra)
 api.use("/nutria", nutrias)
 api.use("/big-cat", big_cats)
+api.use("/panda", pandas)
+
 
 
 api.use((_req, res) => {
