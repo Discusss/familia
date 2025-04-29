@@ -28,8 +28,6 @@ api.use("/nutria", nutrias)
 api.use("/big-cat", big_cats)
 api.use("/panda", pandas)
 
-
-
 api.use((_req, res) => {
     res.status(404).json({ error: 'Not Found' })
 });
