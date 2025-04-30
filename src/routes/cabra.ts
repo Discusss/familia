@@ -19,7 +19,7 @@ router.get('/:number', (req, res) => {
             return;
         }
 
-        const files: string[] = fs.readdirSync('./assets/pandas').map(f => f.toLowerCase())
+        const files: string[] = fs.readdirSync('./assets/cabras').map(f => f.toLowerCase())
             .filter(file => file.endsWith(".jpg") || file.endsWith(".png") || file.endsWith(".jpeg") || file.endsWith(".webp") || file.endsWith(".gif"));
         if (files.length === 0) {
             res.status(404).json({error: "No files found"});
