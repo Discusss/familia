@@ -1,0 +1,12 @@
+[default]
+keep_alive = 5
+ident = "LaCabra"
+limits = { forms = "64 kB" }
+
+[debug]
+address = "0.0.0.0"
+log_level = "normal"
+
+[release]
+address = "0.0.0.0"
+log_level = "critical"
