@@ -1,5 +1,6 @@
 **
+!Cargo.toml
+!Rocket.toml
 !src
-!package.json
-!tsconfig.json
 !assets
+!.cargo
