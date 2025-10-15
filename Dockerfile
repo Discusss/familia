@@ -4,7 +4,7 @@ WORKDIR /img_build
 USER root
 ADD . .
 
-RUN apt-get update && apt-get install libssl-dev pkg-config
+RUN apt-get update && apt-get install libssl-dev pkg-config -y
 RUN rustup override set nightly
 RUN cargo build --release
 
@@ -27,6 +27,7 @@ COPY assets ${APP}/assets
 
 RUN chown -R $APP_USER:$APP_USER ${APP}
 RUN ldd --version
+RUN ls -lh ${APP}/assets
 
 RUN apt-get update && apt-get install -y openssl ca-certificates
 RUN update-ca-certificates
