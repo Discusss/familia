@@ -4,10 +4,13 @@ This is a simple API to deliver random images various animals.
 
 ### Implemented animals
 This API currently supports the following animals:
-- Goats `goat`
-- Otters `otter` (Thanks to users `@.griselda.` `@mhroom._` `@.kofu`)
-- Pandas `panda` (Thanks to `@mhroom._`)
-- Big Cats `big_cat` (Thanks to `@.griselda.`)
+- Goats `goats`
+- Otters `otters` (Thanks to users `@.griselda.` `@mhroom._` `@.kofu`)
+- Pandas `pandas` (Thanks to `@mhroom._`)
+- Cats `cats` (Thanks to `thecatapi.com`)
+- Dogs `dogs` (Thanks to `dog.ceo`)
+- Foxes `foxes` (Thanks to `randomfox.ca`)
+- Big Cats `big_cats` (Thanks to `@.griselda.`)
 
 ## Routes
 
