@@ -11,6 +11,8 @@ This API currently supports the following animals:
 - Dogs `dogs` (Thanks to `dog.ceo`)
 - Foxes `foxes` (Thanks to `randomfox.ca`)
 - Big Cats `big_cats` (Thanks to `@.griselda.`)
+- Ducks `ducks` (Thanks to `random-d.uk`)
+- Seals `seals` (Thanks to `@336kasza`)
 
 ## Routes
 
